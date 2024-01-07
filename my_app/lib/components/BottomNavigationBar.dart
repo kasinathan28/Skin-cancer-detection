@@ -13,8 +13,8 @@ class BottomNavigationBar1 extends StatefulWidget {
 }
 
 class _BottomNavigationBar1State extends State<BottomNavigationBar1> {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController();
+  int _currentIndex = 1; // Set initial index to 1 (Home)
+  final PageController _pageController = PageController(initialPage: 1); // Set initial page to 1 (Home)
 
   final List<IconData> _icons = [
     Icons.history,
