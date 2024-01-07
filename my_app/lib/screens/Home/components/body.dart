@@ -3,6 +3,7 @@ import 'package:my_app/components/CustomAppBar.dart';
 import 'package:my_app/components/image_card.dart';
 import 'package:my_app/screens/Home/components/home_content.dart';
 import 'package:my_app/screens/Home/components/homeimage.dart';
+// import 'package:my_app/screens/Home/components/mainpage.dart';
 
 class Body extends StatelessWidget {
   @override

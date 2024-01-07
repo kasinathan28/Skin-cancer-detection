@@ -10,7 +10,7 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 520,
+      top: 450,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

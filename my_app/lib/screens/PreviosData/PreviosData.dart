@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/components/BottomNavogationBar.dart';
 
 class PreviousData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Previous Data"),
+        // title: Text("Previous Data"),
         automaticallyImplyLeading: false, 
       ),
       body: Center(
@@ -15,7 +14,6 @@ class PreviousData extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
       ),
-      bottomNavigationBar: BottomNavigatinBar(),
     );
   }
 }

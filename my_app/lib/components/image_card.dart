@@ -7,20 +7,16 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen size
     Size screenSize = MediaQuery.of(context).size;
 
-    // Calculate responsive padding based on the screen width
-    double paddingValue = screenSize.width * 0.05;
+    double paddingValue = screenSize.width * 0.03;
 
     return Positioned(
       bottom: screenSize.height * 0.15,
       child: Card(
-        elevation: 5,
+        elevation: 3,
         child: InkWell(
-          onTap: () {
-            // Add your onTap logic here
-          },
+          onTap: () {},
           child: Padding(
             padding: EdgeInsets.all(paddingValue),
             child: Row(

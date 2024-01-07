@@ -31,6 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   # Add other dependencies as needed
 
 
@@ -42,8 +43,9 @@ dependencies:
   firebase_core: ^2.24.2
   http: ^1.1.2
   firebase_auth: ^4.15.3
-  # cloud_firebase: ^4.2.0
+  animated_notch_bottom_bar: ^1.0.1
   firebase_database: ^10.3.8
+  animated_bottom_navigation_bar: ^1.3.0
 
  
 #  shared code
