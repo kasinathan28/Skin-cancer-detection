@@ -18,49 +18,56 @@ class EditScreen extends StatelessWidget {
         title: Text("Edit Profile"),
         backgroundColor: kPrimaryLightColor,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                CircleAvatar(
-                  radius: 100,
-                  backgroundImage: AssetImage("assets/images/avatar.png"),
-                ),
-                Positioned(
-                  bottom: 1,
-                  left: 140,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.add_a_photo),
+      body: SingleChildScrollView(
+        
+        child: Center(
+        
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+          
+            children: [
+              Stack(
+              
+                children: [
+                  
+                  CircleAvatar(
+                    radius: 100,
+                    backgroundImage: AssetImage("assets/images/avatar.png"),
+                  
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RoundInputField(
-                  hintText: "Email",
-                  onChanged: onChanged,
-                  controller: email,
-                ),
-                SizedBox(height: 16),
-                RoundInputField(
-                  hintText: "Password",
-                  onChanged: onChanged,
-                  controller: password,
-                ),
-                SizedBox(height: 16),
-                RoundedButton(text: "Submit", press:(){
-                }),
-                                SizedBox(height: 86),
-
-              ],
-            ),
-          ],
+                  
+                  Positioned(
+                    bottom: 10,  // Adjust the bottom property
+                    left: 140,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.add_a_photo),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RoundInputField(
+                    hintText: "Email",
+                    onChanged: onChanged,
+                    controller: email,
+                  ),
+                  SizedBox(height: 16),
+                  RoundInputField(
+                    hintText: "Password",
+                    onChanged: onChanged,
+                    controller: password,
+                  ),
+                  SizedBox(height: 16),
+                  RoundedButton(text: "Submit", press: () {}),
+                  SizedBox(height: 86),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
