@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/components/round_input_field.dart';
+import 'package:my_app/components/round_password_field.dart';
 import 'package:my_app/components/rounded_button.dart';
 import 'package:my_app/constant.dart';
 
@@ -56,7 +57,7 @@ class EditScreen extends StatelessWidget {
                     controller: email,
                   ),
                   SizedBox(height: 16),
-                  RoundInputField(
+                  RoundPasswordField(
                     hintText: "Password",
                     onChanged: onChanged,
                     controller: password,

@@ -44,7 +44,7 @@ class _BodyState extends State<Body> {
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: kPrimaryColor,
-          duration: Duration(seconds: 2),
+          duration: Duration(seconds: 1),
         ),
       );
       Navigator.push(context, MaterialPageRoute(builder: (context){
