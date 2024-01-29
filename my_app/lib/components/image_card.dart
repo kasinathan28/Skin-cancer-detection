@@ -17,7 +17,7 @@ class ImageCard extends StatefulWidget {
 class _ImageCardState extends State<ImageCard> {
   final ImagePicker _imagePicker = ImagePicker();
   late FirebaseStorage _firebaseStorage;
-  bool _uploading = false; // Initialize _uploading to false
+  bool _uploading = false; 
 
   @override
   void initState() {
@@ -60,7 +60,6 @@ class _ImageCardState extends State<ImageCard> {
           
         ),
       );
-
       print('Image uploaded');
     });
   }

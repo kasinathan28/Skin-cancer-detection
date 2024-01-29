@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Align(
         alignment: Alignment.center,
         child: Padding(
-          padding: EdgeInsets.only(top: 42,left: 25),
+          padding: EdgeInsets.only(top: 40,left: 25),
           child: Text(
             "Previous Data",
             style: TextStyle(

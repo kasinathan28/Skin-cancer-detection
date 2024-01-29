@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "895929952131",
-    "project_id": "flutter-main-41a99",
-    "storage_bucket": "flutter-main-41a99.appspot.com"
+    "project_number": "488740562725",
+    "project_id": "skin-cancer-59ce1",
+    "storage_bucket": "skin-cancer-59ce1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:895929952131:android:efe0aa60bf27aecdd3f8b6",
+        "mobilesdk_app_id": "1:488740562725:android:c18b0866eff2a723139ccc",
         "android_client_info": {
           "package_name": "com.example.my_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "488740562725-dd2i63oue03e2mocg503oqohrti6ov0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCE7PEEvG7BU6vgDOYYJhQ04yj_rigLHWA"
+          "current_key": "AIzaSyD1shLvt1zRDWakY4U2PhHZfemWBBQKL_I"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488740562725-dd2i63oue03e2mocg503oqohrti6ov0o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "488740562725-31bcbeq0keqcfec3v5c78iqj9gbrd71r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myApp"
+              }
+            }
+          ]
         }
       }
     }

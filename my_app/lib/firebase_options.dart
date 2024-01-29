@@ -44,38 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAj_Ub48BlaPouXJYrbSVGe52X8fsfGjEo',
-    appId: '1:895929952131:web:e1cc8988e75f1032d3f8b6',
-    messagingSenderId: '895929952131',
-    projectId: 'flutter-main-41a99',
-    authDomain: 'flutter-main-41a99.firebaseapp.com',
-    storageBucket: 'flutter-main-41a99.appspot.com',
-    measurementId: 'G-W16XM0YT7P',
+    apiKey: 'AIzaSyCUuPmB46HkPQgknsfCPHVVQRbzzfZZz-I',
+    appId: '1:488740562725:web:a5cccb3855fac299139ccc',
+    messagingSenderId: '488740562725',
+    projectId: 'skin-cancer-59ce1',
+    authDomain: 'skin-cancer-59ce1.firebaseapp.com',
+    storageBucket: 'skin-cancer-59ce1.appspot.com',
+    measurementId: 'G-GCD5LVTWK4',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCE7PEEvG7BU6vgDOYYJhQ04yj_rigLHWA',
-    appId: '1:895929952131:android:efe0aa60bf27aecdd3f8b6',
-    messagingSenderId: '895929952131',
-    projectId: 'flutter-main-41a99',
-    storageBucket: 'flutter-main-41a99.appspot.com',
+    apiKey: 'AIzaSyD1shLvt1zRDWakY4U2PhHZfemWBBQKL_I',
+    appId: '1:488740562725:android:c18b0866eff2a723139ccc',
+    messagingSenderId: '488740562725',
+    projectId: 'skin-cancer-59ce1',
+    storageBucket: 'skin-cancer-59ce1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB7nZei4o5d4Xrpo7JwzsR0GSWqjfrotpI',
-    appId: '1:895929952131:ios:9d30b1825cf3a732d3f8b6',
-    messagingSenderId: '895929952131',
-    projectId: 'flutter-main-41a99',
-    storageBucket: 'flutter-main-41a99.appspot.com',
+    apiKey: 'AIzaSyDN3knBnVwILfKOGbB4Iw0ybOTvWhZAtno',
+    appId: '1:488740562725:ios:aebf6dcd8fd66213139ccc',
+    messagingSenderId: '488740562725',
+    projectId: 'skin-cancer-59ce1',
+    storageBucket: 'skin-cancer-59ce1.appspot.com',
+    iosClientId: '488740562725-31bcbeq0keqcfec3v5c78iqj9gbrd71r.apps.googleusercontent.com',
     iosBundleId: 'com.example.myApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB7nZei4o5d4Xrpo7JwzsR0GSWqjfrotpI',
-    appId: '1:895929952131:ios:f8ddfd99d716187ad3f8b6',
-    messagingSenderId: '895929952131',
-    projectId: 'flutter-main-41a99',
-    storageBucket: 'flutter-main-41a99.appspot.com',
+    apiKey: 'AIzaSyDN3knBnVwILfKOGbB4Iw0ybOTvWhZAtno',
+    appId: '1:488740562725:ios:4c30e4dbb228c8fa139ccc',
+    messagingSenderId: '488740562725',
+    projectId: 'skin-cancer-59ce1',
+    storageBucket: 'skin-cancer-59ce1.appspot.com',
+    iosClientId: '488740562725-ocm0bg31cn832qp2b6h0kdiedq654h70.apps.googleusercontent.com',
     iosBundleId: 'com.example.myApp.RunnerTests',
   );
 }
