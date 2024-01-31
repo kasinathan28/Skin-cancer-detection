@@ -27,7 +27,20 @@ class _BodyState extends State<Body> {
   String _emailError = '';
   String _passwordError = '';
 
-   signInWithEmailAndPassword() async {
+  void _showSnackBar(String message, Color color) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: color,
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  signInWithEmailAndPassword() async {
     try {
       setState(() {
         isloading = true;
@@ -37,17 +50,10 @@ class _BodyState extends State<Body> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Login Success',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: kPrimaryColor,
-          duration: Duration(seconds: 1),
-        ),
-      );
-      Navigator.push(context, MaterialPageRoute(builder: (context){
+
+      _showSnackBar('Login Success', kPrimaryColor);
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
         return HomePage();
       }));
     } on FirebaseAuthException catch (e) {
@@ -59,12 +65,13 @@ class _BodyState extends State<Body> {
         setState(() {
           _emailError = 'No user found for that email.';
         });
-        
       } else if (e.code == 'wrong-password') {
         setState(() {
           _passwordError = 'Wrong password provided for that user.';
         });
       }
+
+      _showSnackBar('Login Failed. ${e.message}', Colors.red);
     } finally {
       setState(() {
         isloading = false;

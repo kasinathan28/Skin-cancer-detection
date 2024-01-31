@@ -1,11 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: SplashScreen(), 
+    home: SplashScreen(),
   ));
 }
 
@@ -19,8 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    
     Timer(Duration(seconds: 2), () {
+      print("Navigating to ImageListView");
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ImageListView()),
@@ -56,30 +55,42 @@ class _ImageListViewState extends State<ImageListView> {
   }
 
   Future<void> fetchImageUrls() async {
-    String folderPath = '/images';
+    try {
+      String folderPath = '/images';
 
-    ListResult result = await _storage.ref(folderPath).listAll();
+      print("Fetching image URLs from $folderPath");
 
-    List<String> urls = [];
-    for (Reference ref in result.items) {
-      String url = await ref.getDownloadURL();
-      urls.add(url);
+      ListResult result = await _storage.ref(folderPath).listAll();
+
+      List<String> urls = [];
+      for (Reference ref in result.items) {
+        String url = await ref.getDownloadURL();
+        urls.add(url);
+      }
+
+      print("Fetched ${urls.length} image URLs");
+
+      setState(() {
+        imageUrls = urls;
+      });
+    } catch (e) {
+      print('Error fetching image URLs: $e');
     }
-
-    setState(() {
-      imageUrls = urls;
-    });
   }
 
   Future<void> deleteImage(String imageUrl) async {
-    
-    Reference imageRef = _storage.refFromURL(imageUrl);
+    try {
+      Reference imageRef = _storage.refFromURL(imageUrl);
 
-    
-    await imageRef.delete();
+      print("Deleting image at $imageUrl");
 
-    
-    fetchImageUrls();
+      await imageRef.delete();
+
+      print("Image deleted, fetching updated image URLs");
+      fetchImageUrls();
+    } catch (e) {
+      print('Error deleting image: $e');
+    }
   }
 
   @override
@@ -92,41 +103,46 @@ class _ImageListViewState extends State<ImageListView> {
           : ListView.builder(
               itemCount: imageUrls.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Image.network(
-                    imageUrls[index],
-                    width: 100.0,
-                    height: 200.0,
-                    fit: BoxFit.cover,
-                  ),
-                  onLongPress: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Delete Image?'),
-                          content: Text('Do you want to delete this image?'),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                
-                                deleteImage(imageUrls[index]);
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Delete'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                );
+                try {
+                  return ListTile(
+                    title: Image.network(
+                      imageUrls[index],
+                      width: 100.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
+                    ),
+                    onLongPress: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Delete Image?'),
+                            content: Text('Do you want to delete this image?'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Cancel'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  print("User confirmed deletion");
+                                  deleteImage(imageUrls[index]);
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Delete'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  );
+                } catch (e) {
+                  print('Error loading image: $e');
+                  return Container(); // or some placeholder widget
+                }
               },
             ),
     );
