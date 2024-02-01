@@ -3,7 +3,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:my_app/constant.dart';
 import 'package:my_app/screens/Home/components/body.dart';
 import 'package:my_app/screens/PreviosData/PreviosData.dart';
-import 'package:my_app/screens/Profile/profile.dart';
+import 'package:my_app/screens/Profile/Profile.dart';
 
 class BottomNavigationBar1 extends StatefulWidget {
   const BottomNavigationBar1({Key? key}) : super(key: key);
