@@ -6,7 +6,7 @@ import 'package:my_app/screens/welcome/welcome.dart';
 class Authpage extends StatelessWidget {
   const Authpage({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
         body: StreamBuilder<User?>(
@@ -19,4 +19,4 @@ class Authpage extends StatelessWidget {
               }
             }));
   }
-}
+} 

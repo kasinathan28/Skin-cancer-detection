@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Avatar extends StatefulWidget {
   const Avatar({Key? key}) : super(key: key);
@@ -19,16 +20,19 @@ class _AvatarState extends State<Avatar> {
 
   Future<void> _loadUserProfile() async {
     try {
-      User? user = FirebaseAuth.instance.currentUser;
-
+      final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
+        final userData = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .get();
         setState(() {
-          photoUrl = user.photoURL;
+          photoUrl = userData.get('photoUrl');
+          print('Photo URL: $photoUrl');
         });
       }
-    } catch (e, stackTrace) {
+    } catch (e) {
       print("Error loading user profile: $e");
-      print("StackTrace: $stackTrace");
     }
   }
 
@@ -42,9 +46,10 @@ class _AvatarState extends State<Avatar> {
             children: [
               CircleAvatar(
                 radius: 100,
+                // Use photoUrl directly if not null, otherwise use a placeholder image
                 backgroundImage: photoUrl != null
                     ? NetworkImage(photoUrl!) as ImageProvider<Object>?
-                    : AssetImage("assets/images/avatar.png"),
+                    : AssetImage("assets/images/avatar_placeholder.png") as ImageProvider<Object>?,
               ),
             ],
           ),

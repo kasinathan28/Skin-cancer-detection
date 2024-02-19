@@ -7,6 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:my_app/components/round_password_field.dart';
 import 'package:my_app/components/rounded_button.dart';
 import 'package:my_app/constant.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Add this import statement
+
 
 class EditScreen extends StatefulWidget {
   @override
@@ -117,6 +119,12 @@ class _EditScreenState extends State<EditScreen> {
           await ref.putFile(_image!);
           String imageUrl = await ref.getDownloadURL();
 
+          // Save the image URL to Firestore
+          FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+            'email': user.email,
+            'profile_picture': imageUrl,
+          });
+
           // Now imageUrl contains the URL of the uploaded image
           print("Image URL: $imageUrl");
         }
@@ -187,3 +195,4 @@ class _EditScreenState extends State<EditScreen> {
     );
   }
 }
+
